@@ -1,0 +1,28 @@
+<div th:switch="${lectures}">
+    <div th:case="*">
+        <h2>Lecture Of Budi Luhur</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>NIP</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="lecture : ${lectures}">
+                    <td th:text="${lecture.nip}"></td>
+                    <td th:text="${lecture.fullName}"></td>
+                    <td th:text="${lecture.email}"></td>
+                    <td th:text="${lecture.phoneNumber}"></td>
+                    <td><a th:href="@{/edit/{nip}(nip=${lecture.nip})}">Edit</a></td>
+                    <td><a th:href="@{/lectures/{nip}/delete (nip=${lecture.nip})}">Delete</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p><a href="/signup">Add a new Lectures</a></p>
+</div>
